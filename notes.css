@@ -1,9 +1,17 @@
-/*
-Ctrl+D: select multiple
+/* Ctrl+D: select multiple
 
-clip path
-centering an element with transform: translate(-50%, -50%) property;
+- Every CSS property must have a value
 
-absolute position always finds the first parent element with position relative as it's reference
 
+- clip path
+- centering an element with transform: translate(-50%, -50%) property;
+- absolute position always finds the first parent element with position relative as it's reference
+
+- Cascading: resolving final property from multiple definitions
+
+- 'rem' unit is always wrt root font size (default is 16px, i.e., 1rem = 16px). Useful for responsive design as we can just change the root font size and changes will reflect 	   all over the code.
+
+	* Always put your own css file after 3rd party stylesheets to over ride them (order of selectors)
+	* We do address accessibility to a degree. For instance, we use percentage instead of px when defining the root font-size, so as not to interfere with custom user settings
+	  concerning font-size, allowing visually impaired individuals, or those who simply wish to avoid eye-strain, to retain their higher browser font-size settings.
 */
