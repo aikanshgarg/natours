@@ -4,14 +4,23 @@
 
 
 - clip path
+
 - centering an element with transform: translate(-50%, -50%) property;
+
 - absolute position always finds the first parent element with position relative as it's reference
 
 - Cascading: resolving final property from multiple definitions
 
 - 'rem' unit is always wrt root font size (default is 16px, i.e., 1rem = 16px). Useful for responsive design as we can just change the root font size and changes will reflect 	   all over the code.
 
+- Block Element Modifier model for sensible class names: .block__element--modifier
+
+- The 7-1 Pattern: architecting files and folders
+
 	* Always put your own css file after 3rd party stylesheets to over ride them (order of selectors)
+
+	* Never set font size to 'px' (if we set root(html) font size as, say 10px, no matter what the user won't be able to change it according to their convenience)
+	
 	* We do address accessibility to a degree. For instance, we use percentage instead of px when defining the root font-size, so as not to interfere with custom user settings
 	  concerning font-size, allowing visually impaired individuals, or those who simply wish to avoid eye-strain, to retain their higher browser font-size settings.
 */

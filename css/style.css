@@ -7,14 +7,17 @@ Dark green: #28b485
 
 */
 
-* {
+*,
+*::after,
+*::before {
 	margin: 0;
 	padding: 0;
-	box-sizing: border-box; /*so that padding and margin are not added to elements height & width*/
+	box-sizing: inherit; /*so that all elements inherit this ppty*/
 }
 
 html {
-	font-size: 10px; /*root font size: 1rem = 10px*/
+	/*font-size: 10px;*/ /*root font size: 1rem = 10px*/
+	font-size: 62.5%; /*wrt to default of browser, in general 16px*/
 }
 
 body {
@@ -24,6 +27,7 @@ body {
 	line-height: 1.7;
 	color: #777;
 	padding: 3rem;
+	box-sizing: border-box; /*so that padding and margin are not added to elements height & width*/
 }
 
 .header {
@@ -35,17 +39,17 @@ body {
 	position: relative;
 }
 
-.logo-box {
+.header__logo-box {
 	position: absolute;
 	top: 4rem; /*reference of these distances is the parent element(header) with property relative */
 	left: 4rem;
 }
 
-.logo {
+.header__logo {
 	height: 3.5rem;
 }
 
-.text-box {
+.header__text-box {
 	position: absolute; /*to center the box wrt to parent*/
 	top: 40%;
 	left: 50%;
@@ -61,7 +65,7 @@ body {
 	margin-bottom: 6rem;
 }
 
-.heading-primary-main { 
+.heading-primary--main { 
 	display: block; /*to make both headings appear below each other*/
 	font-size: 6rem;
 	font-weight: 400;
@@ -76,7 +80,7 @@ body {
 	*/
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
 	display: block;
 	font-size: 2rem;
 	font-weight: 700;
@@ -147,12 +151,12 @@ body {
 	box-shadow: 0 1rem 2rem rgba(0,0,0,0.2) /*x y blur color*/
 }
 
-.btn:active {
+.btn:active { /*on click*/
 	transform: translateY(-.1rem);
 	box-shadow: 0 .5rem 1rem rgba(0,0,0,0.2) /*reducing size of shadow on y-axis & blur value, to give effect of being closer*/
 }
 
-.btn-white {
+.btn--white {
 	background-color: #fff;
 	color: #777;
 }
@@ -172,7 +176,7 @@ body {
 }
 
 /*grow & fadout effect changes bg color for different btns*/
-.btn-white::after {
+.btn--white::after {
 	background-color: #fff;
 }
 
@@ -182,7 +186,7 @@ body {
 	opacity: 0; /*fade out animation, comes .btn::after transition*/
 }
 
-.btn-animated {
+.btn--animated {
 	animation: moveInBottom .5s ease-out .75s; /*.75s is delay*/
 	animation-fill-mode: backwards; /*automatically applies style of 0% of animation(line 117) before start*/
 }
