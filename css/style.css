@@ -81,6 +81,29 @@ body {
     letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out; }
 
+.heading-secondary {
+  font-size: 3.5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  /*making the text color gradient!*/
+  display: inline-block;
+  background-image: linear-gradient(to right, #7ed56f, #28b485);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: .2rem;
+  transition: all .2s;
+  /*animation*/ }
+  .heading-secondary:hover {
+    transform: skewY(2deg) skewX(15deg) scale(1.1);
+    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2);
+    /*x y blur color*/ }
+
+.u-center-text {
+  text-align: center; }
+
+.u-margin-bottom-8 {
+  margin-bottom: 8rem; }
+
 .btn {
   /*Pseudo-class*/
   /*after: creating a psuedo element(same as .btn with no content and a bg color), child of .btn, hide/unhide it on hover*/ }
@@ -151,7 +174,7 @@ body {
   background-position: top;
   /*the top of image remains same on all viewports, while the bottom gets cropped on enlarging*/
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /*start from top left and move clockwise*/
+  /*co-ordinates: start from top left and move clockwise*/
   position: relative; }
   .header__logo-box {
     position: absolute;
@@ -173,7 +196,6 @@ body {
 .row {
   max-width: 114rem;
   /*general practice these days of width:1140px*/
-  background-color: #333;
   margin: 0 auto;
   /*center a block element inside another element*/
   /*selects all the elements with class name which starts with "col-"*/ }
@@ -185,7 +207,6 @@ body {
     clear: both;
     /*clears both left and right float*/ }
   .row [class^="col-"] {
-    background-color: orangered;
     float: left; }
     .row [class^="col-"]:not(:last-child) {
       margin-right: 6rem; }
@@ -201,3 +222,8 @@ body {
     width: calc( 2 * ((100% - 3 * 6rem) / 4) + 6rem); }
   .row .col-3-of-4 {
     width: calc( 3 * ((100% - 3 * 6rem) / 4) + 2*6rem); }
+
+.section-about {
+  background-color: #f7f7f7;
+  padding: 25rem 0;
+  margin-top: -20vh; }

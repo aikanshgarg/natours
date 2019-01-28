@@ -1,4 +1,6 @@
 /* 
+Plugins: Emmet, Live-server
+
 Terminal: mkdir folder (create new folder)
 		  touch files (create new files)
 		  cp/mv/rm (copy/move/remove files)
@@ -31,15 +33,14 @@ Terminal: mkdir folder (create new folder)
 	-layout: style for holding all components together
 	-vanders: 3rd party code, like bootstrap css
 
-
 - 'mixins': used for reusable code (DRY principle), ex: celarfix
 
 - 'attribute selector'
 
+- gradient-colored TEXT!
+
 - npm run script_name (for running script to compile sass into css)
 - live-server (installed globally, run in our local folder)
-
-
 
 
 	* Always put your own css file after 3rd party stylesheets to over ride them (order of selectors)
