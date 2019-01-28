@@ -32,7 +32,9 @@ Terminal: mkdir folder (create new folder)
 	-vanders: 3rd party code, like bootstrap css
 
 
-- 'mixins': used for reusable code (DRY principle)
+- 'mixins': used for reusable code (DRY principle), ex: celarfix
+
+- 'attribute selector'
 
 - npm run script_name (for running script to compile sass into css)
 - live-server (installed globally, run in our local folder)
