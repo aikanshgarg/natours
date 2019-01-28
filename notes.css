@@ -1,4 +1,12 @@
-/* Ctrl+D: select multiple
+/* 
+Terminal: mkdir folder (create new folder)
+		  touch files (create new files)
+		  cp/mv/rm (copy/move/remove files)
+		  rm -r (remove folder)
+
+
+
+  Ctrl+D: select multiple
 
 - Every CSS property must have a value
 
@@ -7,7 +15,9 @@
 
 - centering an element with transform: translate(-50%, -50%) property;
 
-- absolute position always finds the first parent element with position relative as it's reference
+- position:absolute always finds the first parent element with position relative as it's reference
+
+- 'float' property makes the element's height collapse if all child are floating. 'clearfix::after' resolves this
 
 - Cascading: resolving final property from multiple definitions
 
@@ -16,6 +26,8 @@
 - Block Element Modifier model for sensible class names: .block__element--modifier
 
 - The 7-1 Pattern: architecting files and folders
+
+- 'mixins': used for reusable code (DRY principle)
 
 	* Always put your own css file after 3rd party stylesheets to over ride them (order of selectors)
 
