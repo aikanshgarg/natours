@@ -25,7 +25,12 @@ Terminal: mkdir folder (create new folder)
 
 - Block Element Modifier model for sensible class names: .block__element--modifier
 
-- The 7-1 Pattern: architecting files and folders
+- The 7-1 Pattern: architecting files and folders (imports & partials)
+	-base: all html, body and universal selector(*) code
+	-components: reusable building blocks
+	-layout: style for holding all components together
+	-vanders: 3rd party code, like bootstrap css
+
 
 - 'mixins': used for reusable code (DRY principle)
 

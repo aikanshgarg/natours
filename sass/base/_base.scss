@@ -1,0 +1,18 @@
+
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: inherit; /*so that all elements inherit this ppty*/
+}
+
+html {
+	/*font-size: 10px;*/ /*root font size: 1rem = 10px*/
+	font-size: 62.5%; /*wrt to default of browser, in general 16px. defines what 1 rem =?*/
+}
+
+body {
+	padding: 3rem;
+	box-sizing: border-box; /*so that padding and margin are not added to elements height & width*/
+}

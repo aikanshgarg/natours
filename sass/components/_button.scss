@@ -1,0 +1,60 @@
+
+.btn {
+	/*Pseudo-class*/
+	&:link,
+	&:visited {
+		text-transform: uppercase;
+		text-decoration: none;
+		padding: 1.5rem 4rem; /*tb rl*/
+		display: inline-block; /*in order to change the default inline display of text(anchor tag)*/
+		border-radius: 10rem;
+		transition: all .2s; /*animation*/
+		position: relative; /*parent of pseudo (after) element*/
+		font-size: 1.6rem;
+	}
+
+	&:hover { 
+		transform: translateY(-.3rem); /*move 3px up*/
+		box-shadow: 0 1rem 2rem rgba($color-black,0.2); /*x y blur color*/
+
+		/*an 'after' pseudo element which appears only on .btn hover: we want the btn to grow and fade out, on hover*/
+		&::after{
+			transform: scaleX(1.4) scaleY(1.6); /*grow bigger*/
+			opacity: 0; /*fade out animation, comes .btn::after transition*/
+		}
+	}
+
+	&:active { /*on click*/
+		transform: translateY(-.1rem);
+		box-shadow: 0 .5rem 1rem rgba($color-black,0.2) /*reducing size of shadow on y-axis & blur value, to give effect of being closer*/
+	}
+
+	&--white {
+		background-color: $color-white;
+		color: $color-grey-dark;
+
+		/*grow & fadout effect changes bg color for different btns*/
+		&::after {
+			background-color: $color-white;
+		}
+	}
+
+	/*after: creating a psuedo element(same as .btn with no content and a bg color), child of .btn, hide/unhide it on hover*/
+	&::after {
+		content: ""; /*required*/
+		display: inline-block; /*required*/
+		height: 100%; /*wrt to parent- .btn*/ 
+		width: 100%; /*wrt to parent- .btn*/
+		border-radius: 10rem;
+		position: absolute; /*to hide behind .btn*/
+		top: 0; /*wrt position relative of parent: .btn*/
+		left: 0; /*wrt position relative of parent: .btn*/
+		z-index: -1; /*hide after element behind .btn (stack)*/
+		transition: all .4s; /*animation*/
+	}
+
+	&--animated {
+		animation: moveInBottom .5s ease-out .75s; /*.75s is delay*/
+		animation-fill-mode: backwards; /*automatically applies style of 0% of animation(line 117) before start*/
+	}
+}

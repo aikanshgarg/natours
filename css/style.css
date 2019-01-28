@@ -13,69 +13,12 @@ html {
   /*font-size: 10px;*/
   /*root font size: 1rem = 10px*/
   font-size: 62.5%;
-  /*wrt to default of browser, in general 16px*/ }
+  /*wrt to default of browser, in general 16px. defines what 1 rem =?*/ }
 
 body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /*font-size: 16px;*/
-  line-height: 1.7;
-  color: #777;
   padding: 3rem;
   box-sizing: border-box;
   /*so that padding and margin are not added to elements height & width*/ }
-
-.header {
-  height: 95vh;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
-  background-size: cover;
-  background-position: top;
-  /*the top of image remains same on all viewports, while the bottom gets cropped on enlarging*/
-  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-  /*start from top left and move clockwise*/
-  position: relative; }
-  .header__logo-box {
-    position: absolute;
-    top: 4rem;
-    /*reference of these distances is the parent element(header) with property relative */
-    left: 4rem; }
-  .header__logo {
-    height: 3.5rem; }
-  .header__text-box {
-    position: absolute;
-    /*to center the box wrt to parent*/
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    /*these % are wrt to element itself*/
-    text-align: center;
-    /*to center the btn*/ }
-
-.heading-primary {
-  color: #fff;
-  text-transform: uppercase;
-  backface-visibility: hidden;
-  /*hack: to prevent little shaking of animation*/
-  margin-bottom: 6rem; }
-  .heading-primary--main {
-    display: block;
-    /*to make both headings appear below each other*/
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    /*
-		animation-delay: 3s;
-		animation-iteration-count: 3;
-		*/ }
-  .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-out; }
 
 @keyframes moveInLeft {
   0% {
@@ -104,6 +47,39 @@ body {
   100% {
     opacity: 1;
     transform: translate(0); } }
+
+body {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  /*font-size: 16px;*/
+  line-height: 1.7;
+  color: #777; }
+
+.heading-primary {
+  color: #fff;
+  text-transform: uppercase;
+  backface-visibility: hidden;
+  /*hack: to prevent little shaking of animation*/
+  margin-bottom: 6rem; }
+  .heading-primary--main {
+    display: block;
+    /*to make both headings appear below each other*/
+    font-size: 6rem;
+    font-weight: 400;
+    letter-spacing: 3.5rem;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /*
+		animation-delay: 3s;
+		animation-iteration-count: 3;
+		*/ }
+  .heading-primary--sub {
+    display: block;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: 1.75rem;
+    animation: moveInRight 1s ease-out; }
 
 .btn {
   /*Pseudo-class*/
@@ -167,3 +143,29 @@ body {
     /*.75s is delay*/
     animation-fill-mode: backwards;
     /*automatically applies style of 0% of animation(line 117) before start*/ }
+
+.header {
+  height: 95vh;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url(../img/hero.jpg);
+  background-size: cover;
+  background-position: top;
+  /*the top of image remains same on all viewports, while the bottom gets cropped on enlarging*/
+  clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+  /*start from top left and move clockwise*/
+  position: relative; }
+  .header__logo-box {
+    position: absolute;
+    top: 4rem;
+    /*reference of these distances is the parent element(header) with property relative */
+    left: 4rem; }
+  .header__logo {
+    height: 3.5rem; }
+  .header__text-box {
+    position: absolute;
+    /*to center the box wrt to parent*/
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /*these % are wrt to element itself*/
+    text-align: center;
+    /*to center the btn*/ }
