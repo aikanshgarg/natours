@@ -29,6 +29,12 @@ Terminal: mkdir folder (create new folder)
 
 - 'mixins': used for reusable code (DRY principle)
 
+- npm run script_name (for running script to compile sass into css)
+- live-server (installed globally, run in our local folder)
+
+
+
+
 	* Always put your own css file after 3rd party stylesheets to over ride them (order of selectors)
 
 	* Never set font size to 'px' (if we set root(html) font size as, say 10px, no matter what the user won't be able to change it according to their convenience)
