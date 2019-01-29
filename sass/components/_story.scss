@@ -2,7 +2,7 @@
 	width: 75%;
 	margin: 0 auto; // center (works when we've block element inside another block element)
 	box-shadow: 0 3rem 6rem rgba($color-black, .1);
-	background-color: $color-white;
+	background-color: rgba($color-white, .9);
 	border-radius: .3rem;
 	padding: 6rem;
 	padding-left: 9rem;
@@ -26,11 +26,36 @@
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		transform: translate(-50%, -50%); 
+		transform: translate(-50%, -50%) scale(1.4); 
 		height: 100%;// 100% = 15rem(parent's height) responsive images always need height
+		transition: all .5s;
 	}
 
 	&__text {
 		transform: skewX(12deg);		
+	}
+
+	&__caption {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, 20%); 
+		color: $color-white;
+		text-transform: uppercase;
+		font-size: 1.7rem;
+		text-align: center; 
+		opacity: 0; // initial state (to hide)
+		transition: all .5s;
+		backface-visibility: hidden; // hack: hide shakiness on animation
+	}
+
+	&:hover &__caption { // on hover animate caption
+		opacity: 1;
+		transform: translate(-50%, -50%);
+	}
+
+	&:hover &__image {
+		transform: translate(-50%, -50%) scale(1);
+		filter: blur(.3rem) brightness(80%);
 	}
 }

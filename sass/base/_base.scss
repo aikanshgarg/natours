@@ -16,3 +16,15 @@ body {
 	padding: 3rem;
 	box-sizing: border-box; /*so that padding and margin are not added to elements height & width*/
 }
+
+/* Mozilla based browsers */
+*::-moz-selection {
+       background-color: $color-primary;
+       color: $color-white;
+}
+
+/* Works in Safari */
+*::selection {
+       background-color: $color-primary;
+       color: $color-white;
+}

@@ -20,6 +20,16 @@ body {
   box-sizing: border-box;
   /*so that padding and margin are not added to elements height & width*/ }
 
+/* Mozilla based browsers */
+*::-moz-selection {
+  background-color: #55c57a;
+  color: #fff; }
+
+/* Works in Safari */
+*::selection {
+  background-color: #55c57a;
+  color: #fff; }
+
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -360,7 +370,7 @@ body {
   width: 75%;
   margin: 0 auto;
   box-shadow: 0 3rem 6rem rgba(0, 0, 0, 0.1);
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.9);
   border-radius: .3rem;
   padding: 6rem;
   padding-left: 9rem;
@@ -381,10 +391,29 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    height: 100%; }
+    transform: translate(-50%, -50%) scale(1.4);
+    height: 100%;
+    transition: all .5s; }
   .story__text {
     transform: skewX(12deg); }
+  .story__caption {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 20%);
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 1.7rem;
+    text-align: center;
+    opacity: 0;
+    transition: all .5s;
+    backface-visibility: hidden; }
+  .story:hover .story__caption {
+    opacity: 1;
+    transform: translate(-50%, -50%); }
+  .story:hover .story__image {
+    transform: translate(-50%, -50%) scale(1);
+    filter: blur(0.3rem) brightness(80%); }
 
 .header {
   height: 95vh;
