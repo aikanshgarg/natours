@@ -202,6 +202,38 @@ body {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   transform: translateY(0); }
 
+.card {
+  perspective: 150rem;
+  /*this ppty is always set on parent and a child is needed to make it work(card__side) to make the rotation of cards look as if they move towards us*/
+  -moz-perspective: 150rem;
+  /*to support mozilla*/
+  position: relative;
+  height: 50rem;
+  /*to preserve the height which collpased due to absolute positioning of children*/ }
+  .card__side {
+    color: white;
+    font-size: 2rem;
+    height: 50rem;
+    transition: all .8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    backface-visibility: hidden;
+    border-radius: .3rem;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+    .card__side--front {
+      background-color: #fff; }
+    .card__side--back {
+      transform: rotateY(180deg); }
+      .card__side--back-1 {
+        background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+  .card:hover .card__side--front {
+    /*on hovering the card, card__side--front is rotated*/
+    transform: rotateY(180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0deg); }
+
 .composition {
   position: relative; }
   .composition__photo {
@@ -320,3 +352,8 @@ body {
   /*direct child selector of section-features, row is the direct child*/ }
   .section-features > * {
     transform: skewY(7deg); }
+
+.section-tour {
+  background-color: #f7f7f7;
+  padding: 25rem 0 50rem 0;
+  margin-top: -10rem; }

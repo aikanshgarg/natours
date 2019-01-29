@@ -1,0 +1,40 @@
+.card {
+	perspective: 150rem; /*this ppty is always set on parent and a child is needed to make it work(card__side) to make the rotation of cards look as if they move towards us*/
+	-moz-perspective: 150rem;/*to support mozilla*/
+	position: relative;
+	height: 50rem; /*to preserve the height which collpased due to absolute positioning of children*/
+
+	&__side {
+		color: white;
+		font-size: 2rem;
+		height: 50rem;
+		transition: all .8s ease;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		backface-visibility: hidden;
+		border-radius: .3rem;
+		box-shadow: 0 1.5rem 4rem rgba($color-black, .15);
+
+		&--front {
+			background-color: $color-white;
+		}
+
+		&--back {
+			transform: rotateY(180deg);
+
+			&-1 {
+				background-image: linear-gradient(to right bottom, $color-secondary-light, $color-secondary-dark);
+			}
+		}
+	}
+	
+	&:hover &__side--front{ /*on hovering the card, card__side--front is rotated*/
+		transform: rotateY(180deg);	
+	}
+
+	&:hover &__side--back{ 
+		transform: rotateY(0deg);	
+	}
+}
