@@ -39,7 +39,17 @@
 		}
 	}
 
-	/*after: creating a psuedo element(same as .btn with no content and a bg color), child of .btn, hide/unhide it on hover*/
+	&--green {
+		background-color: $color-primary;
+		color: $color-white;
+
+		/*grow & fadout effect changes bg color for different btns*/
+		&::after {
+			background-color: $color-primary;
+		}	
+	}
+
+	/* ::after -> creating a psuedo element(same as .btn with no content and a bg color), child of .btn, hide/unhide it on hover*/
 	&::after {
 		content: ""; /*required*/
 		display: inline-block; /*required*/
