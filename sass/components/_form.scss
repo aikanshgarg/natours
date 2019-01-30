@@ -15,6 +15,7 @@
 		border-bottom: 3px solid transparent;
 		width: 90%;
 		display: block;
+		transition: all .3s;
 
 		&:focus {
 			outline: none;
@@ -48,4 +49,55 @@
 		visibility: hidden;
 		transform: translateY(-4rem); 
 	}
+
+	// radio button styling
+	&__radio-group {
+		display: inline-block; // to avoid line break and display both btns in same line
+		width: 49%;
+	}
+
+	&__radio-input {
+		display: none;
+		//visibility: hidden;
+	}
+
+	&__radio-label {
+		font-size: $default-font-size;
+		cursor: pointer;
+		position: relative;//parent of &__radio-button
+		padding-left: 4.5rem;
+	}
+
+	&__radio-button {
+		height: 3rem;
+		width: 3rem;
+		border: .5rem solid $color-primary;
+		border-radius: 50%;
+		display: inline-block; // above properties work for block level elements only
+		position: absolute;
+		left: 0;
+		top: -.4rem;
+
+		&::after { // ::after pseudo element: inner element of radio btn (a green circle)
+			content: "";
+			display: block;
+			height: 1.3rem;
+			width: 1.3rem;
+			border-radius: 50%;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: $color-primary; 
+			opacity: 0; // initially inner circle is not visible
+			transition: opacity .2s;
+		}
+	
+	}	
+	
+	// when we select the &__radio-input, checked pseduo class is availabe to us. We then select &__radio-label using sibling selector, then select it's child ::after
+	&__radio-input:checked ~ &__radio-label &__radio-button::after {
+		opacity: 1;
+	}
+	
 }
