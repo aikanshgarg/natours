@@ -12,6 +12,10 @@ Terminal: mkdir folder (create new folder)
 
 - Every CSS property must have a value
 
+- centering things: 
+	1) text-align:center; // for inline elements like text or image
+	2) margin: 0 auto; // for block elements
+	3) position:absolute and transform: translate(-50%, -50%); // centering one block element within another block element 
 
 - clip path OR skewY: tricks to make a skew design 
 
