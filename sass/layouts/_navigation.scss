@@ -16,6 +16,7 @@
 		z-index: 2000; // higher than &__background as we need to cover it
 		cursor: pointer;
 		box-shadow: 0 1rem 3rem rgba($color-black, .1);
+		text-align: center;
 	}
 
 	&__background {
@@ -90,6 +91,8 @@
 	}
 
 	// CHECKBOX HACK 
+
+	// FUNCTIONALITY
 	&__checkbox:checked ~ &__background { // sibling selector
 		transform: scale(80);
 	}
@@ -98,7 +101,53 @@
 		width: 100%;
 	}
 
+	// ICON (3 lines are icon, icon::after & icon::before pseduo)
+	&__icon {
+		margin-top: 3.5rem;
+		position: relative; // parent for before after pseudo elements
+		
+		&,
+		&::before,
+		&::after {
+			width: 3rem;
+			height: 2.2px; // we don't want it to change whatever be the base font-size
+			background-color: $color-grey-dark-3;
+			display: inline-block;
+		}
 
+		&::before,
+		&::after {
+			content: "";
+			position: absolute; // child of icon
+			left: 0;
+			transition: all .2s;
+		}
 
+		&::before { top: -.8rem; }
+		&::after { top: .8rem; }
+	}
+
+	&__button:hover &__icon::before {
+		top: -1rem;
+	}
+	&__button:hover &__icon::after {
+		top: 1rem;
+	}
+
+	// making a cross of after and before as well as making the original icon disappear
+	&__checkbox:checked + &__button &__icon {
+		background-color: transparent; // to make middle line(icon) disappear
+	}
+	&__checkbox:checked + &__button &__icon::before {
+		top: 0;
+		transform: rotate(135deg);
+	}
+	&__checkbox:checked + &__button &__icon::after {
+		top: 0;
+		transform: rotate(-135deg);
+	}
+	
 
 }
+
+// https://www.udemy.com/advanced-css-and-sass/learn/v4/questions/5637246
