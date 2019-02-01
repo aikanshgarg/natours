@@ -48,14 +48,10 @@
 	}
 
 	&__list {
+		@include absCenter; // mixin to center inside parent
 		list-style: none;
 		text-align: center;
 		width: 100%;
-		// to center within another element(we can write mixin for this)
-		position: absolute;
-		top: 50%;
-		left: 50%;
-		transform: translate(-50%, -50%);
 	}
 
 	&__item {

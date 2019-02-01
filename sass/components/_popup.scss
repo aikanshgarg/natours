@@ -1,0 +1,102 @@
+.popup {
+	position: fixed;
+	background-color: rgba($color-black,.85);
+	height: 100vh;
+	width: 100%;
+	top: 0; // important with pos:fixed
+	left: 0; // important with pos:fixed
+	z-index: 2500; // highest: above everything (higher than nav button)
+	transition: all .3s;
+
+	// hiding the popup
+	opacity: 0;
+	visibility: hidden;
+
+	&__content {
+		@include absCenter; // mixin to center inside the parent
+		
+		display: table; // parent
+
+		background-color: $color-white;
+		width: 75%;
+		border-radius: 3px;
+		box-shadow: 0 2rem 4rem rgba($color-black, .2);
+		overflow: hidden;
+
+		// create the zoom-in effect on opening popup
+		opacity: 0; // hide it
+		transform: translate(-50%,-50%) scale(.25); // scale down
+		transition: all .5s .2s; // .2s is delay
+	}
+
+	// content of the box
+	&__left {
+		width: 33.3333333%;
+		display: table-cell; // to make equal height cols
+	}
+
+	&__right {
+		width: 66.6666667%;
+		display: table-cell; // to make equal height cols
+		vertical-align: middle;
+		padding: 3rem 5rem;
+	}
+
+	&__img {
+		display: block;
+		width: 100% // all of parent's width
+
+	}
+
+	&__text {
+		font-size: 1.4rem; // 1em = 1.4rem = 14px
+		margin-bottom: 4rem;
+		
+		-moz-column-count: 2;
+		-moz-column-gap: 4rem;
+		-moz-column-rule: 1px solid $color-grey-light-2;
+
+		column-count: 2;
+		column-gap: 4rem;
+		column-rule: 1px solid $color-grey-light-2;
+		
+		-moz-hyphens: auto;
+		-ms-hyphens: auto;
+		-webkit-hyphens: auto;
+		hyphens: auto;
+	}
+
+	// OPEN STATES 
+	// popup is our target when we hit book now
+	&:target {
+		opacity: 1;
+		visibility: visible;
+	}
+	
+	// styling popup's child popup__content when popup is target
+	&:target &__content { // zoom-in effect 
+		opacity: 1; 
+		transform: translate(-50%,-50%) scale(1); // scale to original size
+	}
+
+	// <a> tag to close the popup
+	&__close { 
+		&:link,
+		&:visited {
+			color: $color-grey-dark;
+			position: absolute;
+			top: 2.5rem;
+			right: 2.5rem;
+			font-size: 3rem;
+			text-decoration: none;
+			display: inline-block;
+			transition: all .2s;
+			line-height: 1;
+		}
+
+		&:hover {
+			color: $color-primary;
+		}
+	}
+
+}
