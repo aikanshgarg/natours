@@ -15,6 +15,7 @@
 		right: 6rem;
 		z-index: 2000; // higher than &__background as we need to cover it
 		cursor: pointer;
+		box-shadow: 0 1rem 3rem rgba($color-black, .1);
 	}
 
 	&__background {
@@ -26,17 +27,23 @@
 		right: 6.5rem;
 		background-image: radial-gradient($color-primary-light, $color-primary-dark);
 		z-index: 1000;
+		transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);// animation on checkbox hack
 
-		transform: scale(80);
+		//transform: scale(80);
 	}
 
 	&__nav {
 		height: 100vh;
-		width: 100%;
 		position: fixed;
 		top: 0;
 		right: 0;
-		z-index: 1500;
+		z-index: 1500; // higher than background but lower than menu button
+
+		// to hide the nav elements
+		opacity: 0;
+		width: 0;
+
+		transition: all .8s cubic-bezier(0.68, -0.55, 0.265, 1.55); // animation on checkbox hack
 	}
 
 	&__list {
@@ -65,7 +72,7 @@
 			text-transform: uppercase;
 			padding: 1rem 2rem;
 			background-image: linear-gradient(120deg, transparent 0%, transparent 50%, $color-white 50%);// solid-color-gradient for edge effect
-			background-size: 230%; // on inc this value linear gradient(bg-img) will vary
+			background-size: 220%; // on inc this value linear gradient(bg-img) will vary
 			transition: all .4s;
 
 			span {
@@ -76,10 +83,22 @@
 		
 		&:hover,
 		&:active {
-			background-position: 100%;
+			background-position: right; // same as 100% horizontally
 			color: $color-primary;
 			transform: translateX(1rem);
 		}
-
 	}
+
+	// CHECKBOX HACK 
+	&__checkbox:checked ~ &__background { // sibling selector
+		transform: scale(80);
+	}
+	&__checkbox:checked ~ &__nav { // sibling selector
+		opacity: 1;
+		width: 100%;
+	}
+
+
+
+
 }
