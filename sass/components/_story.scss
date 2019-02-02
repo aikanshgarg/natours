@@ -9,6 +9,23 @@
 	font-size: $default-font-size;
 	transform: skewX(-12deg);
 
+	@include respond(tab-port) {
+		width: 100%;
+		padding: 4rem;
+		padding-left: 7rem;
+	}
+
+	@include respond(phone) {
+		transform: skewX(0);
+	}
+
+	&__heading {
+		@include respond(phone) {
+			padding-left: 4.5rem;
+    		padding-right: 4.5rem;
+		}
+	}
+
 	&__shape {
 		background-color: blue;
 		width: 15rem; // required ppty to make shape-outside work
@@ -20,6 +37,10 @@
 		clip-path: circle(50% at 50% 50%);
 		transform: translateX(-3rem) skewX(12deg);
 		position: relative;
+
+		@include respond(phone) {
+			transform: translateX(-3rem) skewX(0);
+		}
 	}
 
 	&__image {
@@ -32,7 +53,10 @@
 	}
 
 	&__text {
-		transform: skewX(12deg);		
+		transform: skewX(12deg);	
+		@include respond(phone) {
+			transform: skewX(0);
+		}	
 	}
 
 	&__caption {
