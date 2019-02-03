@@ -44,9 +44,9 @@ Terminal: mkdir folder (create new folder)
 - gradient-colored TEXT!
 
 - responsive images use cases:
-	1) Resolution Switching (screen size)
-	2) Density Switching (high and low resolution) srcset in html
-	3) Art Direction (diff images on diff devices) <picture> element
+	1) Resolution Switching (screen size: browser decides things)
+	2) Density Switching (high and low resolution: browser decides which image to use) srcset in html
+	3) Art Direction (diff images on diff devices: browser is forced to do what we say) <picture> element
 
 
 - npm run script_name (for running script to compile sass into css)
