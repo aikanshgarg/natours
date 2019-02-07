@@ -30,13 +30,21 @@
 		background-color: blue;
 		width: 15rem; // required ppty to make shape-outside work
 		height: 15rem; // required ppty to make shape-outside work
-		float: left; // required ppty to make shape-outside work
-		-webkit-shape-outside: circle(50% at 50% 50%); // radius = 50% of height and width
-		shape-outside: circle(50% at 50% 50%);// make text float around a circle(radius at center co-ords)
-		-webkit-clip-path: circle(50% at 50% 50%);
-		clip-path: circle(50% at 50% 50%);
+		float: left; // required ppty to make shape-outside work		
+		border-radius: 50%;
+		overflow: hidden;
 		transform: translateX(-3rem) skewX(12deg);
 		position: relative;
+
+		// feature query for safari browser support
+		@supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)) {
+			-webkit-clip-path: circle(50% at 50% 50%);
+			clip-path: circle(50% at 50% 50%);
+			-webkit-shape-outside: circle(50% at 50% 50%); // radius = 50% of height and width
+			shape-outside: circle(50% at 50% 50%);// make text float around a circle(radius at center co-ords)
+			border-radius: none;
+		}
+
 
 		@include respond(phone) {
 			transform: translateX(-3rem) skewX(0);

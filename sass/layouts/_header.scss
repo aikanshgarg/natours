@@ -1,16 +1,21 @@
 
 .header {
-	height: 95vh;
+	height: 85vh;
 	background-image: linear-gradient(to right bottom, rgba($color-primary-light,0.8), rgba($color-primary-dark,0.8)), url(../img/hero-small.jpg);
 	background-size: cover;
-	background-position: top; /*the top of image remains same on all viewports, while the bottom gets cropped on enlarging*/
-	-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
-	clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*co-ordinates: start from top left and move clockwise*/ 
+	background-position: top; /*the top of image remains same on all viewports, while the bottom gets cropped on enlarging*/ 
 	position: relative;
+
+	@supports (clip-path: polygon(0  0)) or (-webkit-clip-path: polygon(0  0)) {
+		height: 95vh;
+		-webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+		clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); /*co-ordinates: start from top left and move clockwise*/
+	}
 
 	// for high density images (greater than 192 dots-per-inch)
 	@media (min-resolution: 192dpi) and (min-width: 37.5em),
-		   (min-width: 125em) { // larger image is shown when (dpi is > 192 && screen width is greater than 600px) || (screen width > 2000px)
+		   (-webkit-min-device-pixel-ratio: 2) and (min-width: 37.5em),
+		   (min-width: 125em) { // larger image is shown when (dpi is > 192 && screen width is greater than 600px) || (support for safari) || (screen width > 2000px)
 		background-image: linear-gradient(to right bottom, rgba($color-primary-light,0.8), rgba($color-primary-dark,0.8)), url(../img/hero.jpg);
 	}
 

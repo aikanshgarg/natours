@@ -1,6 +1,6 @@
 .popup {
 	position: fixed;
-	background-color: rgba($color-black,.85);
+	background-color: rgba($color-black, .8);
 	height: 100vh;
 	width: 100%;
 	top: 0; // important with pos:fixed
@@ -11,6 +11,14 @@
 	// hiding the popup
 	opacity: 0;
 	visibility: hidden;
+
+	// feature queries: to check if a property is supported in a browser
+	@supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+		-webkit-backdrop-filter: blur(10px);
+		backdrop-filter: blur(10px);
+		background-color: rgba($color-black, .3);
+	}
+
 
 	&__content {
 		@include absCenter; // mixin to center inside the parent
