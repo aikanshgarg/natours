@@ -1,6 +1,8 @@
 /* 
 Auto-prefixer for browser support, no need to write feature queries: https://www.udemy.com/advanced-css-and-sass/learn/v4/questions/5619600
 
+tool for browser support: caniuse.com
+
 Plugins: Emmet, Live-server
 
 Terminal: mkdir folder (create new folder)
@@ -29,7 +31,7 @@ Terminal: mkdir folder (create new folder)
 
 - Cascading: resolving final property from multiple definitions
 
-- 'rem' unit is always wrt root font size (default is 16px, i.e., 1rem = 16px). Useful for responsive design as we can just change the root font size and changes will reflect 	   all over the code.
+- 'rem' unit is always wrt root font size (default is 16px, i.e., 1rem = 16px). Useful for responsive design as we can just change the root font size and changes will reflect 	all over the code.
 
 - Block Element Modifier model for sensible class names: .block__element--modifier
 
@@ -53,6 +55,9 @@ Terminal: mkdir folder (create new folder)
 
 - npm run script_name (for running script to compile sass into css)
 - live-server (installed globally, run in our local folder)
+
+- Build Process: automatic process followed after building an app to have one or more files ready for production
+
 
 
 	* Always put your own css file after 3rd party stylesheets to over ride them (order of selectors)
